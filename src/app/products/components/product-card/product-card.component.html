@@ -1,0 +1,20 @@
+<div class="card bg-base-100 shadow-xl animate-fadeIn">
+  <figure>
+      <a [routerLink]="['/product', product().slug]">
+      <img
+        [src]="product().images | productImage"
+        alt="Shoes" />
+      </a>
+    </figure>
+  <div class="card-body">
+    <h2 class="card-title text-accent text-xl">
+      <a [routerLink]="['/product', product().slug]">{{ product().title }}</a>
+      <div class="badge badge-secondary">NEW</div>
+    </h2>
+    <p>{{ product().description | slice : 0 : 70 }}...</p>
+    <div class="card-actions justify-center lx:justify-end align-items-center">
+      <a [routerLink]="['/product', product().slug]" class="btn btn-primary">Show product</a>
+      <a [routerLink]="" class="btn btn-primary">Buy now</a>
+    </div>
+  </div>
+</div>

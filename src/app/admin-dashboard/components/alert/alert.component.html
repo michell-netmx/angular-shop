@@ -1,0 +1,9 @@
+@if ( show | async ) {
+  <div class="alert alert-{{ type | async }} fixed bottom-4 right-4 w-80 z-10" [@fadeInOut]>
+    @if ( (type | async) === 'success' ) {
+      <span>Datos actualizados correctamente</span>
+    } @else {
+      <span>Error al actualizar los datos</span>
+    }
+  </div>
+}

@@ -1,0 +1,24 @@
+<h1 class="text-2xl font-bold">Products List</h1>
+<h3 class="text-lg">Total products
+  <span class="text-accent"></span>
+</h3>
+
+<div class="divider"></div>
+
+<!-- Listado -->
+ <div class="flex gap-2 items-center">
+   <div class="flex flex-1"></div>
+   <button class="btn btn-primary" routerLink="/admin/product/new">New product</button>
+ </div>
+
+<div class="divider"></div>
+
+<div class="pl-[20px]">
+  <shared-pagination [pages]="pages()" [currentPage]="currentPage()" [itemsForPage]="limit()" [align]="'left'" />
+</div>
+
+<product-table [products]="productsResource.hasValue() ? productsResource.value().products : []" />
+
+<div class="pl-[20px]">
+  <shared-pagination [pages]="pages()" [currentPage]="currentPage()" [itemsForPage]="limit()" [align]="'left'" />
+</div>

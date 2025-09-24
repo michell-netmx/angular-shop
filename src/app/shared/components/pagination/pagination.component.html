@@ -1,0 +1,30 @@
+<div class="flex my-4">
+  <div class="join flex justify-center items-center" [class]="{'justify-center': align()=='center', 'justify-left': align()=='left', 'justify-right': align()=='right'}">
+    @for (page of getPagesList(); track page) {
+      <button
+        class="join-item btn"
+        [class.btn-primary]="page===activePage()"
+        [routerLink]="[]"
+        [queryParams]="{ page }"
+        queryParamsHandling="merge"
+        (click)="activePage.set(page)"
+      >{{page}}</button>
+    }
+  </div>
+
+  <div class="dropdown ms-auto">
+    <div tabindex="0" role="button" class="btn m-1">{{ items() }}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+    </div>
+    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+      <li><a [routerLink]="[]" [queryParams]="{ items: 10 }" (click)="handleDropdownClick($event)">10</a></li>
+      <li><a [routerLink]="[]" [queryParams]="{ items: 20 }" (click)="handleDropdownClick($event)">20</a></li>
+      <li><a [routerLink]="[]" [queryParams]="{ items: 40 }" (click)="handleDropdownClick($event)">40</a></li>
+      <li><a [routerLink]="[]" [queryParams]="{ items: 80 }" (click)="handleDropdownClick($event)">80</a></li>
+      <li><a [routerLink]="[]" [queryParams]="{ items: 100 }" (click)="handleDropdownClick($event)">100</a></li>
+    </ul>
+  </div>
+</div>
+
